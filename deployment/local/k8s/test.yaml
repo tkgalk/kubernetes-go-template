@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: project-test
+  labels:
+    app: project-test
+spec:
+  containers:
+    - name: project-test
+      image: localhost:5000/project-test:0.1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: project-test
+spec:
+  selector:
+    app: project-test
+  ports:
+    - port: 3000
