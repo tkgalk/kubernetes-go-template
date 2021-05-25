@@ -8,6 +8,7 @@ Clone the project. Make sure tho have these installed:
 - Go,
 - `kind`,
 - `kubectl`,
+- `skaffold`,
 - Docker.
 
 Go to the project directory.
@@ -21,6 +22,9 @@ Set up the local cluster:
 ```bash
 make deploy-local-cluster
 ```
+
+## Skaffold
+Now to run the application locally for development - run `skaffold dev`. Any changes should be detected and appropriate containers should be automatically tagged and pushed to your local Kubernetes.
 
 ## Makefile commands
 - deploy-local-cluster - builds local `kind` cluster for development.

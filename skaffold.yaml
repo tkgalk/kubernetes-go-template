@@ -1,0 +1,20 @@
+apiVersion: skaffold/v2beta16
+kind: Config
+metadata:
+  name: kubernetes-go-template
+build:
+  artifacts:
+  - image: localhost:5000/project-test
+    context: .
+    docker:
+      dockerfile: docker/test.Dockerfile
+  - image: localhost:5000/project-user
+    context: .
+    docker:
+      dockerfile: docker/user.Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - deployment/local/k8s/ingress.yaml
+    - deployment/local/k8s/test.yaml
+    - deployment/local/k8s/user.yaml
